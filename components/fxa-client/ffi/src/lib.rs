@@ -9,14 +9,17 @@ use ffi_support::{
 use fxa_client::{ffi::*, FirefoxAccount, PersistCallback};
 use std::{ffi::CString, os::raw::c_char};
 
-fn logging_init() {
+#[no_mangle]
+pub extern "C" fn fxa_enable_logcat_logging() {
     #[cfg(target_os = "android")]
     {
-        android_logger::init_once(
-            android_logger::Filter::default().with_min_level(log::Level::Debug),
-            Some("libfxaclient_ffi"),
-        );
-        log::debug!("Android logging should be hooked up!")
+        let _ = std::panic::catch_unwind(|| {
+            android_logger::init_once(
+                android_logger::Filter::default().with_min_level(log::Level::Debug),
+                Some("libfxaclient_ffi"),
+            );
+            log::debug!("Android logging should be hooked up!")
+        });
     }
 }
 
@@ -39,7 +42,6 @@ pub unsafe extern "C" fn fxa_from_credentials(
     err: &mut ExternError,
 ) -> *mut FirefoxAccount {
     use fxa_client::WebChannelResponse;
-    logging_init();
     log::debug!("fxa_from_credentials");
     call_with_result(err, || {
         let content_url = rust_str_from_c(content_url);
@@ -64,7 +66,6 @@ pub unsafe extern "C" fn fxa_new(
     redirect_uri: *const c_char,
     err: &mut ExternError,
 ) -> *mut FirefoxAccount {
-    logging_init();
     log::debug!("fxa_new");
     call_with_output(err, || {
         let content_url = rust_str_from_c(content_url);
@@ -85,7 +86,6 @@ pub unsafe extern "C" fn fxa_from_json(
     json: *const c_char,
     err: &mut ExternError,
 ) -> *mut FirefoxAccount {
-    logging_init();
     log::debug!("fxa_from_json");
     call_with_result(err, || FirefoxAccount::from_json(rust_str_from_c(json)))
 }
