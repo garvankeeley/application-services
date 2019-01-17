@@ -9,6 +9,7 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.File
+import java.util.concurrent.atomic.AtomicReference
 
 /**
  * An implementation of a [PlacesAPI] backed by a Rust Places library.
@@ -110,6 +111,12 @@ class PlacesConnection(path: String, encryption_key: String? = null) : PlacesAPI
         }
     }
 
+    fun getInterruptHandle(): InterruptHandle {
+        return InterruptHandle(rustCall { err ->
+            LibPlacesFFI.INSTANCE.places_new_interrupt_handle(this.db!!, err)
+        }!!)
+    }
+
     private inline fun <U> rustCall(callback: (RustError.ByReference) -> U): U {
         synchronized(this) {
             val e = RustError.ByReference()
@@ -193,6 +200,31 @@ interface PlacesAPI {
      */
     fun sync(syncInfo: SyncAuthInfo)
 }
+
+class InterruptHandle internal constructor(raw: RawPlacesInterruptHandle): AutoCloseable {
+    // We synchronize all accesses, so this probably doesn't need AtomicReference.
+    private val handle: AtomicReference<RawPlacesInterruptHandle?> = AtomicReference(raw)
+
+    @Synchronized
+    override fun close() {
+        val toFree = handle.getAndSet(null)
+        if (toFree != null) {
+            LibPlacesFFI.INSTANCE.places_interrupt_handle_destroy(toFree)
+        }
+    }
+
+    @Synchronized
+    fun interrupt() {
+        handle.get()?.let {
+            val e = RustError.ByReference()
+            LibPlacesFFI.INSTANCE.places_interrupt(it, e)
+            if (e.isFailure()) {
+                throw e.intoException()
+            }
+        }
+    }
+}
+
 
 open class PlacesException(msg: String): Exception(msg)
 open class InternalPanic(msg: String): PlacesException(msg)

@@ -7,7 +7,7 @@ use ffi_support::{
     rust_string_from_c, ExternError,
 };
 use places::history_sync::store::HistoryStore;
-use places::{storage, PlacesDb};
+use places::{storage, PlacesDb, PlacesInterruptHandle};
 use sync15::telemetry;
 
 use std::os::raw::c_char;
@@ -48,6 +48,21 @@ pub unsafe extern "C" fn places_connection_new(
         let key = ffi_support::opt_rust_string_from_c(encryption_key);
         PlacesDb::open(path, key.as_ref().map(|v| v.as_str()))
     })
+}
+
+/// Get the interrupt handle for a connection. Must be destroyed with
+/// `places_interrupt_handle_destroy`.
+#[no_mangle]
+pub extern "C" fn places_new_interrupt_handle(
+    conn: &PlacesDb,
+    error: &mut ExternError,
+) -> *mut PlacesInterruptHandle {
+    ffi_support::call_with_output(error, || conn.new_interrupt_handle())
+}
+
+#[no_mangle]
+pub extern "C" fn places_interrupt(handle: &PlacesInterruptHandle, error: &mut ExternError) {
+    ffi_support::call_with_output(error, || handle.interrupt())
 }
 
 /// Add an observation to the database. The observation is a VisitObservation represented as JSON.
@@ -160,3 +175,4 @@ pub unsafe extern "C" fn sync15_history_sync(
 
 define_string_destructor!(places_destroy_string);
 define_box_destructor!(PlacesDb, places_connection_destroy);
+define_box_destructor!(PlacesInterruptHandle, places_interrupt_handle_destroy);

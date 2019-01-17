@@ -6,6 +6,7 @@
 // wip-sync-sql-store branch, but with login specific code removed.
 // We should work out how to split this into a library we can reuse.
 
+use super::interrupt::{InterruptScope, PlacesInterruptHandle};
 use super::schema;
 use crate::error::*;
 use crate::hash;
@@ -14,6 +15,8 @@ use sql_support::{self, ConnExt};
 use std::ops::Deref;
 use std::path::Path;
 
+use std::sync::{atomic::AtomicUsize, Arc};
+
 use crate::api::matcher::{split_after_host_and_port, split_after_prefix};
 use crate::match_impl::{AutocompleteMatch, MatchBehavior, SearchBehavior};
 
@@ -21,6 +24,7 @@ pub const MAX_VARIABLE_NUMBER: usize = 999;
 
 pub struct PlacesDb {
     pub db: Connection,
+    interrupt_counter: Arc<AtomicUsize>,
 }
 
 impl PlacesDb {
@@ -74,7 +78,10 @@ impl PlacesDb {
 
         db.execute_batch(&initial_pragmas)?;
         define_functions(&db)?;
-        let mut res = Self { db };
+        let mut res = Self {
+            db,
+            interrupt_counter: Arc::new(AtomicUsize::new(0)),
+        };
         schema::init(&mut res)?;
 
         Ok(res)
@@ -92,6 +99,18 @@ impl PlacesDb {
             Connection::open_in_memory()?,
             encryption_key,
         )?)
+    }
+
+    pub fn new_interrupt_handle(&self) -> PlacesInterruptHandle {
+        PlacesInterruptHandle {
+            db_handle: self.db.get_interrupt_handle(),
+            interrupt_counter: self.interrupt_counter.clone(),
+        }
+    }
+
+    #[inline]
+    pub(crate) fn begin_interrupt_scope(&self) -> InterruptScope {
+        InterruptScope::new(self.interrupt_counter.clone())
     }
 }
 

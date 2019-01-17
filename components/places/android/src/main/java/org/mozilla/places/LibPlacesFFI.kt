@@ -75,6 +75,16 @@ internal interface LibPlacesFFI : Library {
             out_err: RustError.ByReference
     ): Pointer?
 
+    fun places_new_interrupt_handle(
+            conn: RawPlacesConnection,
+            out_err: RustError.ByReference
+    ): RawPlacesInterruptHandle?
+
+    fun places_interrupt(
+            conn: RawPlacesInterruptHandle,
+            out_err: RustError.ByReference
+    )
+
     fun sync15_history_sync(
             conn: RawPlacesConnection,
             key_id: String,
@@ -89,6 +99,11 @@ internal interface LibPlacesFFI : Library {
 
     /** Destroy connection created using `places_connection_new` */
     fun places_connection_destroy(obj: RawPlacesConnection)
+
+    /** Destroy handle created using `places_new_interrupt_handle` */
+    fun places_interrupt_handle_destroy(obj: RawPlacesInterruptHandle)
 }
 
 class RawPlacesConnection : PointerType()
+
+class RawPlacesInterruptHandle : PointerType()
