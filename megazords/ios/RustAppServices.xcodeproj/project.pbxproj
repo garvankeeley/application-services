@@ -21,6 +21,21 @@
 		EB879D64221231F400753DC9 /* CommonErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB879D4D221231F400753DC9 /* CommonErrors.swift */; };
 		EB879D7F221234EB00753DC9 /* RustAppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9D202020914D0D00F1C8FA /* RustAppServices.framework */; };
 		EB879D8B22123FD900753DC9 /* RustAppServicesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB879D8A22123FD900753DC9 /* RustAppServicesTest.swift */; };
+		EB879D9722124ED900753DC9 /* SerialQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE26B3F220B3A5B00D1D99A /* SerialQueue.swift */; };
+		EB879D9822124ED900753DC9 /* CommonErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB879D4D221231F400753DC9 /* CommonErrors.swift */; };
+		EB879D9922124ED900753DC9 /* RustPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C852EEDC220A2A2B00A6E79A /* RustPointer.swift */; };
+		EB879D9A22124ED900753DC9 /* FirefoxAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = C852EEDD220A2A2B00A6E79A /* FirefoxAccount.swift */; };
+		EB879D9B22124ED900753DC9 /* String+Free_FxAClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C852EEDF220A2A2B00A6E79A /* String+Free_FxAClient.swift */; };
+		EB879D9C22124ED900753DC9 /* FxAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C852EEE3220A2A2B00A6E79A /* FxAError.swift */; };
+		EB879D9D22124ED900753DC9 /* String+Free_Logins.swift in Sources */ = {isa = PBXBuildFile; fileRef = C852EECA220A29FE00A6E79A /* String+Free_Logins.swift */; };
+		EB879D9E22124ED900753DC9 /* LoginRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C852EECC220A29FE00A6E79A /* LoginRecord.swift */; };
+		EB879D9F22124ED900753DC9 /* LoginsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C852EECD220A29FE00A6E79A /* LoginsStorage.swift */; };
+		EB879DA022124ED900753DC9 /* LoginStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C852EECF220A29FE00A6E79A /* LoginStoreError.swift */; };
+		EB879DA122124ED900753DC9 /* LockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C852EED0220A29FE00A6E79A /* LockError.swift */; };
+		EB879DA222124F3400753DC9 /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C852EE9D220A283200A6E79A /* libsqlcipher.a */; };
+		EB879DA322124F3400753DC9 /* libmegazord_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C852EEEE220A2E9400A6E79A /* libmegazord_ios.a */; };
+		EB879DAD22124FDA00753DC9 /* libRustAppServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB879D9022124E2B00753DC9 /* libRustAppServices.a */; };
+		EB879DB322124FED00753DC9 /* RustAppServicesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB879D8A22123FD900753DC9 /* RustAppServicesTest.swift */; };
 		EBE26B40220B3A5B00D1D99A /* SerialQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE26B3F220B3A5B00D1D99A /* SerialQueue.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +47,26 @@
 			remoteGlobalIDString = CE9D201F20914D0D00F1C8FA;
 			remoteInfo = RustAppServices;
 		};
+		EB879DAE22124FDA00753DC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE9D201720914D0D00F1C8FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB879D8F22124E2B00753DC9;
+			remoteInfo = RustAppServices_static;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EB879D8E22124E2B00753DC9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C852EE9A220A26E600A6E79A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +89,10 @@
 		EB879D7A221234EB00753DC9 /* RustAppServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RustAppServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB879D7E221234EB00753DC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB879D8A22123FD900753DC9 /* RustAppServicesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustAppServicesTest.swift; sourceTree = "<group>"; };
+		EB879D9022124E2B00753DC9 /* libRustAppServices.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRustAppServices.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB879DA822124FD900753DC9 /* RustAppServicesStaticTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RustAppServicesStaticTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB879DAA22124FDA00753DC9 /* RustAppServicesStaticTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustAppServicesStaticTests.swift; sourceTree = "<group>"; };
+		EB879DAC22124FDA00753DC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBA8770621F5FB9A004F63F0 /* base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = base.xcconfig; sourceTree = "<group>"; };
 		EBA8770721F5FB9A004F63F0 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
 		EBA8770821F5FB9A004F63F0 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
@@ -76,6 +114,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB879D7F221234EB00753DC9 /* RustAppServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB879D8D22124E2B00753DC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB879DA222124F3400753DC9 /* libsqlcipher.a in Frameworks */,
+				EB879DA322124F3400753DC9 /* libmegazord_ios.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB879DA522124FD900753DC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB879DAD22124FDA00753DC9 /* libRustAppServices.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +224,7 @@
 				C852EEDA220A2A2B00A6E79A /* FxAClient */,
 				C852EEC7220A29FE00A6E79A /* Logins */,
 				EB879D7B221234EB00753DC9 /* RustAppServicesTests */,
+				EB879DA922124FDA00753DC9 /* RustAppServicesStaticTests */,
 				CE9D202120914D0D00F1C8FA /* Products */,
 				CE9D203720914D4800F1C8FA /* Frameworks */,
 			);
@@ -179,6 +235,8 @@
 			children = (
 				CE9D202020914D0D00F1C8FA /* RustAppServices.framework */,
 				EB879D7A221234EB00753DC9 /* RustAppServicesTests.xctest */,
+				EB879D9022124E2B00753DC9 /* libRustAppServices.a */,
+				EB879DA822124FD900753DC9 /* RustAppServicesStaticTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,6 +275,15 @@
 				EB879D8A22123FD900753DC9 /* RustAppServicesTest.swift */,
 			);
 			path = RustAppServicesTests;
+			sourceTree = "<group>";
+		};
+		EB879DA922124FDA00753DC9 /* RustAppServicesStaticTests */ = {
+			isa = PBXGroup;
+			children = (
+				EB879DAA22124FDA00753DC9 /* RustAppServicesStaticTests.swift */,
+				EB879DAC22124FDA00753DC9 /* Info.plist */,
+			);
+			path = RustAppServicesStaticTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +336,42 @@
 			productReference = EB879D7A221234EB00753DC9 /* RustAppServicesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		EB879D8F22124E2B00753DC9 /* RustAppServices_static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB879D9622124E2B00753DC9 /* Build configuration list for PBXNativeTarget "RustAppServices_static" */;
+			buildPhases = (
+				EB391DAE221253AB00997638 /* ShellScript */,
+				EB879D8C22124E2B00753DC9 /* Sources */,
+				EB879D8D22124E2B00753DC9 /* Frameworks */,
+				EB879D8E22124E2B00753DC9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RustAppServices_static;
+			productName = RustAppServices_static;
+			productReference = EB879D9022124E2B00753DC9 /* libRustAppServices.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EB879DA722124FD900753DC9 /* RustAppServicesStaticTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB879DB022124FDA00753DC9 /* Build configuration list for PBXNativeTarget "RustAppServicesStaticTests" */;
+			buildPhases = (
+				EB879DA422124FD900753DC9 /* Sources */,
+				EB879DA522124FD900753DC9 /* Frameworks */,
+				EB879DA622124FD900753DC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB879DAF22124FDA00753DC9 /* PBXTargetDependency */,
+			);
+			name = RustAppServicesStaticTests;
+			productName = RustAppServicesStaticTests;
+			productReference = EB879DA822124FD900753DC9 /* RustAppServicesStaticTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -284,6 +387,12 @@
 						LastSwiftMigration = 0930;
 					};
 					EB879D79221234EB00753DC9 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					EB879D8F22124E2B00753DC9 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					EB879DA722124FD900753DC9 = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -302,6 +411,8 @@
 			targets = (
 				CE9D201F20914D0D00F1C8FA /* RustAppServices */,
 				EB879D79221234EB00753DC9 /* RustAppServicesTests */,
+				EB879D8F22124E2B00753DC9 /* RustAppServices_static */,
+				EB879DA722124FD900753DC9 /* RustAppServicesStaticTests */,
 			);
 		};
 /* End PBXProject section */
@@ -321,6 +432,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EB879DA622124FD900753DC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -333,6 +451,23 @@
 			);
 			outputPaths = (
 				"$(SRCROOT)/../../../target/universal/release/libmegazord_ios.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh ./build_megazord.sh\n";
+		};
+		EB391DAE221253AB00997638 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -367,6 +502,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EB879D8C22124E2B00753DC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB879D9722124ED900753DC9 /* SerialQueue.swift in Sources */,
+				EB879D9822124ED900753DC9 /* CommonErrors.swift in Sources */,
+				EB879D9922124ED900753DC9 /* RustPointer.swift in Sources */,
+				EB879D9A22124ED900753DC9 /* FirefoxAccount.swift in Sources */,
+				EB879D9B22124ED900753DC9 /* String+Free_FxAClient.swift in Sources */,
+				EB879D9C22124ED900753DC9 /* FxAError.swift in Sources */,
+				EB879D9D22124ED900753DC9 /* String+Free_Logins.swift in Sources */,
+				EB879D9E22124ED900753DC9 /* LoginRecord.swift in Sources */,
+				EB879D9F22124ED900753DC9 /* LoginsStorage.swift in Sources */,
+				EB879DA022124ED900753DC9 /* LoginStoreError.swift in Sources */,
+				EB879DA122124ED900753DC9 /* LockError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB879DA422124FD900753DC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB879DB322124FED00753DC9 /* RustAppServicesTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -374,6 +535,11 @@
 			isa = PBXTargetDependency;
 			target = CE9D201F20914D0D00F1C8FA /* RustAppServices */;
 			targetProxy = EB879D80221234EB00753DC9 /* PBXContainerItemProxy */;
+		};
+		EB879DAF22124FDA00753DC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB879D8F22124E2B00753DC9 /* RustAppServices_static */;
+			targetProxy = EB879DAE22124FDA00753DC9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -434,6 +600,36 @@
 			};
 			name = Release;
 		};
+		EB879D9422124E2B00753DC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = RustAppServices;
+			};
+			name = Debug;
+		};
+		EB879D9522124E2B00753DC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = RustAppServices;
+			};
+			name = Release;
+		};
+		EB879DB122124FDA00753DC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RustAppServicesStaticTests/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = mozilla.org.RustAppServicesStaticTests;
+			};
+			name = Debug;
+		};
+		EB879DB222124FDA00753DC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RustAppServicesStaticTests/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = mozilla.org.RustAppServicesStaticTests;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -460,6 +656,24 @@
 			buildConfigurations = (
 				EB879D82221234EB00753DC9 /* Debug */,
 				EB879D83221234EB00753DC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB879D9622124E2B00753DC9 /* Build configuration list for PBXNativeTarget "RustAppServices_static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB879D9422124E2B00753DC9 /* Debug */,
+				EB879D9522124E2B00753DC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB879DB022124FDA00753DC9 /* Build configuration list for PBXNativeTarget "RustAppServicesStaticTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB879DB122124FDA00753DC9 /* Debug */,
+				EB879DB222124FDA00753DC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
