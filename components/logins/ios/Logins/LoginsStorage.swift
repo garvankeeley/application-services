@@ -23,9 +23,11 @@ open class SyncUnlockInfo {
 open class LoginsStorage {
     private var raw: UInt64 = 0
     let dbPath: String
+    let queue: DispatchQueue
 
-    public init(databasePath: String) {
+    public init(databasePath: String, queue: DispatchQueue?) {
         self.dbPath = databasePath
+        self.queue = queue ?? DispatchQueue(label: "com.mozilla.LoginsStorage")
     }
 
     deinit {

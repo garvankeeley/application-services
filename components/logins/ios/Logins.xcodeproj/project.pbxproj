@@ -16,8 +16,15 @@
 		D819A4AF21B87468004EE6F3 /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D819A4AE21B87467004EE6F3 /* libsqlcipher.a */; };
 		EB348E432204EA0C00788CD3 /* LoginsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB348E422204EA0C00788CD3 /* LoginsTests.swift */; };
 		EB348E452204EA0C00788CD3 /* Logins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9D202020914D0D00F1C8FA /* Logins.framework */; };
+		EB68D27122130DEF009AE338 /* CommonErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE26B46220B4CE400D1D99A /* CommonErrors.swift */; };
+		EB68D27222130DEF009AE338 /* LockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB395220B5B77E00DB3ED4 /* LockError.swift */; };
+		EB68D27322130DEF009AE338 /* LoginStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE1087520C5ADF9007048AC /* LoginStoreError.swift */; };
+		EB68D27422130DF5009AE338 /* String+Free_Logins.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C6DAFF20DDBA7C009ACDD2 /* String+Free_Logins.swift */; };
+		EB68D27522130DFA009AE338 /* LoginsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D202B20914D2600F1C8FA /* LoginsStorage.swift */; };
+		EB68D27622130DFA009AE338 /* LoginRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB5AAEC21535E7F00B66D7E /* LoginRecord.swift */; };
+		EB68D27822130E1D009AE338 /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D819A4AE21B87467004EE6F3 /* libsqlcipher.a */; };
+		EB68D27922130E1D009AE338 /* liblogins_ffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D819A4A721B861D6004EE6F3 /* liblogins_ffi.a */; };
 		EBE26B47220B4CE400D1D99A /* CommonErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE26B46220B4CE400D1D99A /* CommonErrors.swift */; };
-		EBE26B4D220B4DF100D1D99A /* SerialQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE26B4C220B4DF100D1D99A /* SerialQueue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +36,18 @@
 			remoteInfo = Logins;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EB68D26822130CE2009AE338 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CDB5AAEC21535E7F00B66D7E /* LoginRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRecord.swift; sourceTree = "<group>"; };
@@ -45,11 +64,11 @@
 		EB348E402204EA0C00788CD3 /* LoginsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB348E422204EA0C00788CD3 /* LoginsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginsTests.swift; sourceTree = "<group>"; };
 		EB348E442204EA0C00788CD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB68D26A22130CE2009AE338 /* libLogins.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLogins.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBA8770621F5FB9A004F63F0 /* base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = base.xcconfig; sourceTree = "<group>"; };
 		EBA8770721F5FB9A004F63F0 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
 		EBA8770821F5FB9A004F63F0 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
 		EBE26B46220B4CE400D1D99A /* CommonErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonErrors.swift; path = ../../../../support/ios/CommonErrors.swift; sourceTree = "<group>"; };
-		EBE26B4C220B4DF100D1D99A /* SerialQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SerialQueue.swift; path = ../../../support/ios/SerialQueue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +86,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB348E452204EA0C00788CD3 /* Logins.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB68D26722130CE2009AE338 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB68D27822130E1D009AE338 /* libsqlcipher.a in Frameworks */,
+				EB68D27922130E1D009AE338 /* liblogins_ffi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +119,7 @@
 			children = (
 				CE9D202020914D0D00F1C8FA /* Logins.framework */,
 				EB348E402204EA0C00788CD3 /* LoginsTests.xctest */,
+				EB68D26A22130CE2009AE338 /* libLogins.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,7 +134,6 @@
 				CE9D202420914D0D00F1C8FA /* Info.plist */,
 				CE9D202B20914D2600F1C8FA /* LoginsStorage.swift */,
 				CDB5AAEC21535E7F00B66D7E /* LoginRecord.swift */,
-				EBE26B4C220B4DF100D1D99A /* SerialQueue.swift */,
 			);
 			path = Logins;
 			sourceTree = "<group>";
@@ -196,6 +224,23 @@
 			productReference = EB348E402204EA0C00788CD3 /* LoginsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		EB68D26922130CE2009AE338 /* Logins_static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB68D27022130CE2009AE338 /* Build configuration list for PBXNativeTarget "Logins_static" */;
+			buildPhases = (
+				EB68D26622130CE2009AE338 /* Sources */,
+				EB68D26722130CE2009AE338 /* Frameworks */,
+				EB68D26822130CE2009AE338 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Logins_static;
+			productName = LoginsTests_static;
+			productReference = EB68D26A22130CE2009AE338 /* libLogins.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -211,6 +256,9 @@
 						LastSwiftMigration = 0930;
 					};
 					EB348E3F2204EA0C00788CD3 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					EB68D26922130CE2009AE338 = {
 						CreatedOnToolsVersion = 10.2;
 					};
 				};
@@ -229,6 +277,7 @@
 			targets = (
 				CE9D201F20914D0D00F1C8FA /* Logins */,
 				EB348E3F2204EA0C00788CD3 /* LoginsTests */,
+				EB68D26922130CE2009AE338 /* Logins_static */,
 			);
 		};
 /* End PBXProject section */
@@ -278,7 +327,6 @@
 				EBE26B47220B4CE400D1D99A /* CommonErrors.swift in Sources */,
 				CDB5AAED21535E7F00B66D7E /* LoginRecord.swift in Sources */,
 				CEE1087620C5ADF9007048AC /* LoginStoreError.swift in Sources */,
-				EBE26B4D220B4DF100D1D99A /* SerialQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +335,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB348E432204EA0C00788CD3 /* LoginsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB68D26622130CE2009AE338 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB68D27122130DEF009AE338 /* CommonErrors.swift in Sources */,
+				EB68D27222130DEF009AE338 /* LockError.swift in Sources */,
+				EB68D27322130DEF009AE338 /* LoginStoreError.swift in Sources */,
+				EB68D27422130DF5009AE338 /* String+Free_Logins.swift in Sources */,
+				EB68D27522130DFA009AE338 /* LoginsStorage.swift in Sources */,
+				EB68D27622130DFA009AE338 /* LoginRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,19 +364,20 @@
 /* Begin XCBuildConfiguration section */
 		CE9D202620914D0D00F1C8FA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBA8770721F5FB9A004F63F0 /* debug.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		CE9D202720914D0D00F1C8FA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBA8770821F5FB9A004F63F0 /* release.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
 		};
 		CE9D202920914D0D00F1C8FA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBA8770721F5FB9A004F63F0 /* debug.xcconfig */;
 			buildSettings = {
 				PRODUCT_BUNDLE_IDENTIFIER = org.mozilla.Logins;
 			};
@@ -323,7 +385,6 @@
 		};
 		CE9D202A20914D0D00F1C8FA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBA8770821F5FB9A004F63F0 /* release.xcconfig */;
 			buildSettings = {
 				PRODUCT_BUNDLE_IDENTIFIER = org.mozilla.Logins;
 			};
@@ -331,7 +392,6 @@
 		};
 		EB348E482204EA0C00788CD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBA8770721F5FB9A004F63F0 /* debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = LoginsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -346,7 +406,6 @@
 		};
 		EB348E492204EA0C00788CD3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBA8770821F5FB9A004F63F0 /* release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = LoginsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -356,6 +415,20 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mozilla.org.LoginsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EB68D26E22130CE2009AE338 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = Logins;
+			};
+			name = Debug;
+		};
+		EB68D26F22130CE2009AE338 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = Logins;
 			};
 			name = Release;
 		};
@@ -385,6 +458,15 @@
 			buildConfigurations = (
 				EB348E482204EA0C00788CD3 /* Debug */,
 				EB348E492204EA0C00788CD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB68D27022130CE2009AE338 /* Build configuration list for PBXNativeTarget "Logins_static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB68D26E22130CE2009AE338 /* Debug */,
+				EB68D26F22130CE2009AE338 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

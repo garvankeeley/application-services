@@ -11,13 +11,29 @@
 		CE9D203120914D2600F1C8FA /* FirefoxAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D202B20914D2600F1C8FA /* FirefoxAccount.swift */; };
 		CECB395D20B5BE0200DB3ED4 /* RustPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB395B20B5BE0200DB3ED4 /* RustPointer.swift */; };
 		CEE1087620C5ADF9007048AC /* FxAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE1087520C5ADF9007048AC /* FxAError.swift */; };
+		EB68D28522130EEE009AE338 /* RustPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB395B20B5BE0200DB3ED4 /* RustPointer.swift */; };
+		EB68D28622130EEE009AE338 /* CommonErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE26B48220B4D0200D1D99A /* CommonErrors.swift */; };
+		EB68D28722130EEE009AE338 /* FxAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE1087520C5ADF9007048AC /* FxAError.swift */; };
+		EB68D28822130EF5009AE338 /* String+Free_FxAClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE26B41220B3DF700D1D99A /* String+Free_FxAClient.swift */; };
+		EB68D28922130EF9009AE338 /* FirefoxAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D202B20914D2600F1C8FA /* FirefoxAccount.swift */; };
 		EBA8770C21F5FD5D004F63F0 /* base.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EBA8770921F5FD5D004F63F0 /* base.xcconfig */; };
 		EBA8770D21F5FD5D004F63F0 /* debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EBA8770A21F5FD5D004F63F0 /* debug.xcconfig */; };
 		EBA8770E21F5FD5D004F63F0 /* release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EBA8770B21F5FD5D004F63F0 /* release.xcconfig */; };
 		EBE26B42220B3DF700D1D99A /* String+Free_FxAClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE26B41220B3DF700D1D99A /* String+Free_FxAClient.swift */; };
 		EBE26B49220B4D0200D1D99A /* CommonErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE26B48220B4D0200D1D99A /* CommonErrors.swift */; };
-		EBE26B4B220B4DE300D1D99A /* SerialQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE26B4A220B4DE300D1D99A /* SerialQueue.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EB68D27C22130E8C009AE338 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CE7B4B8A20A36B0500FC4422 /* libfxaclient_ffi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfxaclient_ffi.a; path = ../../../target/universal/debug/libfxaclient_ffi.a; sourceTree = "<group>"; };
@@ -28,12 +44,12 @@
 		CE9D202F20914D2600F1C8FA /* fxa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fxa.h; sourceTree = "<group>"; };
 		CECB395B20B5BE0200DB3ED4 /* RustPointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RustPointer.swift; sourceTree = "<group>"; };
 		CEE1087520C5ADF9007048AC /* FxAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FxAError.swift; sourceTree = "<group>"; };
+		EB68D27E22130E8C009AE338 /* libFxAClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFxAClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBA8770921F5FD5D004F63F0 /* base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = base.xcconfig; sourceTree = "<group>"; };
 		EBA8770A21F5FD5D004F63F0 /* debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
 		EBA8770B21F5FD5D004F63F0 /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
 		EBE26B41220B3DF700D1D99A /* String+Free_FxAClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Free_FxAClient.swift"; sourceTree = "<group>"; };
 		EBE26B48220B4D0200D1D99A /* CommonErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonErrors.swift; path = ../../../../support/ios/CommonErrors.swift; sourceTree = "<group>"; };
-		EBE26B4A220B4DE300D1D99A /* SerialQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SerialQueue.swift; path = ../../../support/ios/SerialQueue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +58,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE3E9D3520A36B63001B4B14 /* libfxaclient_ffi.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB68D27B22130E8C009AE338 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				CE9D202020914D0D00F1C8FA /* FxAClient.framework */,
+				EB68D27E22130E8C009AE338 /* libFxAClient.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,7 +102,6 @@
 				CE9D202420914D0D00F1C8FA /* Info.plist */,
 				CE9D202B20914D2600F1C8FA /* FirefoxAccount.swift */,
 				CE9D202F20914D2600F1C8FA /* fxa.h */,
-				EBE26B4A220B4DE300D1D99A /* SerialQueue.swift */,
 			);
 			path = FxAClient;
 			sourceTree = "<group>";
@@ -148,18 +171,39 @@
 			productReference = CE9D202020914D0D00F1C8FA /* FxAClient.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		EB68D27D22130E8C009AE338 /* FxAClient_static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB68D28422130E8C009AE338 /* Build configuration list for PBXNativeTarget "FxAClient_static" */;
+			buildPhases = (
+				EB68D27A22130E8C009AE338 /* Sources */,
+				EB68D27B22130E8C009AE338 /* Frameworks */,
+				EB68D27C22130E8C009AE338 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FxAClient_static;
+			productName = FxAClient_static;
+			productReference = EB68D27E22130E8C009AE338 /* libFxAClient.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		CE9D201720914D0D00F1C8FA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Mozilla;
 				TargetAttributes = {
 					CE9D201F20914D0D00F1C8FA = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 0930;
+					};
+					EB68D27D22130E8C009AE338 = {
+						CreatedOnToolsVersion = 10.2;
 					};
 				};
 			};
@@ -176,6 +220,7 @@
 			projectRoot = "";
 			targets = (
 				CE9D201F20914D0D00F1C8FA /* FxAClient */,
+				EB68D27D22130E8C009AE338 /* FxAClient_static */,
 			);
 		};
 /* End PBXProject section */
@@ -216,11 +261,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				CECB395D20B5BE0200DB3ED4 /* RustPointer.swift in Sources */,
-				EBE26B4B220B4DE300D1D99A /* SerialQueue.swift in Sources */,
 				EBE26B42220B3DF700D1D99A /* String+Free_FxAClient.swift in Sources */,
 				EBE26B49220B4D0200D1D99A /* CommonErrors.swift in Sources */,
 				CE9D203120914D2600F1C8FA /* FirefoxAccount.swift in Sources */,
 				CEE1087620C5ADF9007048AC /* FxAError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB68D27A22130E8C009AE338 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB68D28822130EF5009AE338 /* String+Free_FxAClient.swift in Sources */,
+				EB68D28522130EEE009AE338 /* RustPointer.swift in Sources */,
+				EB68D28622130EEE009AE338 /* CommonErrors.swift in Sources */,
+				EB68D28922130EF9009AE338 /* FirefoxAccount.swift in Sources */,
+				EB68D28722130EEE009AE338 /* FxAError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,19 +285,20 @@
 /* Begin XCBuildConfiguration section */
 		CE9D202620914D0D00F1C8FA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBA8770A21F5FD5D004F63F0 /* debug.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		CE9D202720914D0D00F1C8FA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBA8770B21F5FD5D004F63F0 /* release.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
 		};
 		CE9D202920914D0D00F1C8FA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBA8770A21F5FD5D004F63F0 /* debug.xcconfig */;
 			buildSettings = {
 				PRODUCT_BUNDLE_IDENTIFIER = org.mozilla.FxAClient;
 			};
@@ -249,9 +306,22 @@
 		};
 		CE9D202A20914D0D00F1C8FA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBA8770B21F5FD5D004F63F0 /* release.xcconfig */;
 			buildSettings = {
 				PRODUCT_BUNDLE_IDENTIFIER = org.mozilla.FxAClient;
+			};
+			name = Release;
+		};
+		EB68D28222130E8C009AE338 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = FxAClient;
+			};
+			name = Debug;
+		};
+		EB68D28322130E8C009AE338 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = FxAClient;
 			};
 			name = Release;
 		};
@@ -272,6 +342,15 @@
 			buildConfigurations = (
 				CE9D202920914D0D00F1C8FA /* Debug */,
 				CE9D202A20914D0D00F1C8FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB68D28422130E8C009AE338 /* Build configuration list for PBXNativeTarget "FxAClient_static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB68D28222130E8C009AE338 /* Debug */,
+				EB68D28322130E8C009AE338 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

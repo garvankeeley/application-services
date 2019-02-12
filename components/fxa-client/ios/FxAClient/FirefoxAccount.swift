@@ -48,6 +48,35 @@ public protocol PersistCallback {
 open class FirefoxAccount: RustHandle {
     fileprivate static var persistCallback: PersistCallback?
 
+    private static var _queue: DispatchQueue?
+    static var queue: DispatchQueue {
+        set {
+            assert(_queue == nil, "Queue can only be set once.")
+            _queue = newValue
+        }
+        get {
+            if _queue == nil {
+                _queue = DispatchQueue(label: "com.mozilla.fxaclient")
+            }
+            return _queue!;
+        }
+    }
+
+    private var myPrivateVar:String?
+
+    var publicGetter:String {
+        set {
+            if myPrivateVar == nil {
+                myPrivateVar = newValue;
+
+            }
+
+        }
+        get {
+            return myPrivateVar!;
+        }
+    }
+
     #if BROWSERID_FEATURES
     /// Creates a `FirefoxAccount` instance from credentials obtained with the onepw FxA login flow.
     /// This is typically used by the legacy Sync clients: new clients mainly use OAuth flows and
@@ -77,7 +106,7 @@ open class FirefoxAccount: RustHandle {
     /// Please note that the `FxAConfig` provided will be consumed and therefore
     /// should not be re-used.
     public convenience init(config: FxAConfig) throws {
-        let pointer = try queue.sync(execute: {
+        let pointer = try FirefoxAccount.queue.sync(execute: {
             return try FxAError.unwrap({err in
                 fxa_new(config.contentUrl, config.clientId, config.redirectUri, err)
             })
@@ -86,7 +115,7 @@ open class FirefoxAccount: RustHandle {
     }
 
     override func cleanup(pointer: UInt64) {
-        queue.sync(execute: {
+        FirefoxAccount.queue.sync(execute: {
             try! FxAError.unwrap({err in
                 // Is this the right thing to do? We should only hit an error here
                 // for panics and handle misuse, both inidicate bugs in our code
@@ -99,7 +128,7 @@ open class FirefoxAccount: RustHandle {
     /// Serializes the state of a `FirefoxAccount` instance. It can be restored later with `fromJSON(...)`.
     /// It is the responsability of the caller to persist that serialized state regularly (after operations that mutate `FirefoxAccount`) in a **secure** location.
     open func toJSON() throws -> String {
-        return try queue.sync(execute: {
+        return try FirefoxAccount.queue.sync(execute: {
             return String(freeingFxaString: try FxAError.unwrap({err in
                 fxa_to_json(self.raw, err)
             }))
@@ -129,7 +158,7 @@ open class FirefoxAccount: RustHandle {
     /// to make that call. The caller should then start the OAuth Flow again with
     /// the "profile" scope.
     open func getProfile(completionHandler: @escaping (Profile?, Error?) -> Void) {
-        queue.async {
+        FirefoxAccount.queue.async {
             do {
                 let profile = Profile(raw: try FxAError.unwrap({err in
                     fxa_profile(self.raw, false, err)
@@ -152,7 +181,7 @@ open class FirefoxAccount: RustHandle {
     #endif
 
     open func getTokenServerEndpointURL() throws -> URL {
-        return try queue.sync(execute: {
+        return try FirefoxAccount.queue.sync(execute: {
             return URL(string: String(freeingFxaString: try FxAError.unwrap({err in
                 fxa_get_token_server_endpoint_url(self.raw, err)
             })))!
@@ -160,7 +189,7 @@ open class FirefoxAccount: RustHandle {
     }
 
     open func getConnectionSuccessURL() throws -> URL {
-        return try queue.sync(execute: {
+        return try FirefoxAccount.queue.sync(execute: {
             return URL(string: String(freeingFxaString: try FxAError.unwrap({err in
                 fxa_get_connection_success_url(self.raw, err)
             })))!
@@ -177,7 +206,7 @@ open class FirefoxAccount: RustHandle {
     ///
     /// It is possible also to request keys (e.g. sync keys) during that flow by setting `wants_keys` to true.
     open func beginOAuthFlow(scopes: [String], wantsKeys: Bool, completionHandler: @escaping (URL?, Error?) -> Void) {
-        queue.async {
+        FirefoxAccount.queue.async {
             do {
                 let scope = scopes.joined(separator: " ")
                 let url = URL(string: String(freeingFxaString: try FxAError.unwrap({err in
@@ -195,7 +224,7 @@ open class FirefoxAccount: RustHandle {
     /// This resulting token might not have all the `scopes` the caller have requested (e.g. the user
     /// might have denied some of them): it is the responsibility of the caller to accomodate that.
     open func completeOAuthFlow(code: String, state: String, completionHandler: @escaping (Void, Error?) -> Void) {
-        queue.async {
+        FirefoxAccount.queue.async {
             do {
                 try FxAError.unwrap({err in
                     fxa_complete_oauth_flow(self.raw, code, state, err)
@@ -213,7 +242,7 @@ open class FirefoxAccount: RustHandle {
     /// for this scope. The caller should then start the OAuth Flow again with
     /// the desired scope.
     open func getAccessToken(scope: String, completionHandler: @escaping (AccessTokenInfo?, Error?) -> Void) {
-        queue.async {
+        FirefoxAccount.queue.async {
             do {
                 let tokenInfo = AccessTokenInfo(raw: try FxAError.unwrap({err in
                     fxa_get_access_token(self.raw, scope, err)
@@ -278,7 +307,7 @@ open class AccessTokenInfo: RustStructPointer<AccessTokenInfoC> {
     }
 
     override func cleanup(pointer: UnsafeMutablePointer<AccessTokenInfoC>) {
-        queue.sync {
+        FirefoxAccount.queue.sync {
             fxa_oauth_info_free(self.raw)
         }
     }
@@ -321,7 +350,7 @@ open class Profile: RustStructPointer<ProfileC> {
     }
 
     override func cleanup(pointer: UnsafeMutablePointer<ProfileC>) {
-        queue.sync {
+        FirefoxAccount.queue.sync {
             fxa_profile_free(raw)
         }
     }
@@ -341,7 +370,7 @@ open class SyncKeys: RustStructPointer<SyncKeysC> {
     }
 
     override func cleanup(pointer: UnsafeMutablePointer<SyncKeysC>) {
-        queue.sync {
+        FirefoxAccount.queue.sync {
             fxa_sync_keys_free(raw)
         }
     }
