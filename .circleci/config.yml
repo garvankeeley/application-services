@@ -186,7 +186,7 @@ commands:
           destination: logs/sccache.log
 
 jobs:
-  # DISABLED DUE TO https://bit.ly/2ZBqkEK
+  # DISABLED DUE TO https://discuss.circleci.com/t/latest-xcode-image-10-2-has-drawbacks-with-the-image-os-10-14-3/29797
   #  Check Swift formatting: 
   #    macos:
   #      xcode: "10.2.1"
