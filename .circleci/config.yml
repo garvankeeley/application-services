@@ -186,14 +186,15 @@ commands:
           destination: logs/sccache.log
 
 jobs:
-  Check Swift formatting:
-    macos:
-      xcode: "10.2.1"
-    steps:
-      - checkout
-      - run: brew install swiftlint swiftformat
-      - run: swiftlint --strict
-      - run: swiftformat --lint --swiftversion 4 --verbose megazords
+  # DISABLED DUE TO https://bit.ly/2ZBqkEK
+  #  Check Swift formatting: 
+  #    macos:
+  #      xcode: "10.2.1"
+  #    steps:
+  #      - checkout
+  #      - run: brew install swiftlint swiftformat
+  #      - run: swiftlint --strict
+  #      - run: swiftformat --lint --swiftversion 4 --verbose megazords
   Check Rust formatting:
     docker:
       - image: circleci/rust:latest
@@ -366,9 +367,9 @@ jobs:
             popd
 workflows:
   version: 2
-  swiftlint:
-    jobs:
-      - Check Swift formatting
+  #  swiftlint:
+  #    jobs:
+  #      - Check Swift formatting
   check-formating:
     jobs:
       - Check Rust formatting
